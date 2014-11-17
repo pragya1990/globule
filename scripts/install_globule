@@ -10,18 +10,19 @@ key_location=$scripts_path/$key_name
 script_location=$scripts_path/$script_name
 
 #TODO: get these two from openstack somehow
-external_instance_ip=130.207.111.171
-internal_instance_ip=192.168.111.6
+external_instance_ip=130.207.111.185
+internal_instance_ip=192.168.111.86
 
 default_instance_location=/home/ubuntu
 new_key_location=$default_instance_location/$key_name
 new_script_location=$default_instance_location/$script_name
 
 #copying the key and script to the new instance
-scp -r -i $key_location $key_location ubuntu@$internal_instance_ip:$new_key_location
-scp -r -i $key_location $script_location ubuntu@$internal_instance_ip:$new_script_location
+sudo scp -r -i $key_location $key_location ubuntu@$internal_instance_ip:$new_key_location
+sudo scp -r -i $key_location $script_location ubuntu@$internal_instance_ip:$new_script_location
+sudo scp -r -i $key_location $resources_path/* ubuntu@$internal_instance_ip:$default_instance_location/
 
-ssh -i $key_location ubuntu@$internal_instance_ip "
+ssh -o StrictHostKeychecking=no -i $key_location ubuntu@$internal_instance_ip "
 
 sudo $new_script_location
 "
