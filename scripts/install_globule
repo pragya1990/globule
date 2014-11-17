@@ -4,9 +4,10 @@ internal_server_ip=192.168.111.64
 key_name=pragyakeypair.pem
 script_name=instance_script.sh
 
-resources_path=~/resources
-key_location=$resources_path/$key_name
-script_location=$resources_path/$script_name
+resources_path=~/globule/resources
+scripts_path=~/globule/scripts
+key_location=$scripts_path/$key_name
+script_location=$scripts_path/$script_name
 
 #TODO: get these two from openstack somehow
 external_instance_ip=130.207.111.171

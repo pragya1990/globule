@@ -4,7 +4,7 @@ internal_server_ip=192.168.111.64
 key_name=pragyakeypair.pem
 script_name=instance_script.sh
 
-resources_path=//home/ubuntu/resources
+resources_path=//home/ubuntu/globule/resources
 
 #TODO: get these two from openstack somehow
 external_instance_ip=130.207.111.171
